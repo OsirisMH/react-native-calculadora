@@ -14,12 +14,15 @@ export const Boton = ({texto, color = '#2D2D2D', ancho = false, accion}: BotonPr
         <TouchableOpacity
             activeOpacity={0.5}
             onPress={ () => accion(texto) }
+            style={{
+                padding: 1,
+            }}
         >     
             <View
                 style={{
                     ...styles.boton,
                     backgroundColor: color,
-                    width: ( ancho ) ? 180 : 80,
+                    width: ( ancho ) ? 164 : 80,
                 }}
             >
                 <Text style={{

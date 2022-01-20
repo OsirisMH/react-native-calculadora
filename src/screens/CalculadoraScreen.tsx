@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, useWindowDimensions } from 'react-native';
 import { Boton } from '../components/Boton';
 import { styles } from '../theme/appTheme';
 import { useCalculadora } from '../hooks/useCalculadora';
 
 export const CalculadoraScreen = () => {
 
+    const { width } = useWindowDimensions();
+    console.log(width);
     const {  
         numero,
         numeroAnterior,
@@ -21,7 +23,7 @@ export const CalculadoraScreen = () => {
     } = useCalculadora();
 
     return (
-        <View style={ styles.calculadoraContainer }>
+        <View style={ ( width < 352 ) ? styles.calculadoraContainerSM : styles.calculadoraContainer }>
             {
                 ( numeroAnterior !== '0' ) &&
                     <Text style={ styles.resultadoPequeno }>{ numeroAnterior }</Text>
